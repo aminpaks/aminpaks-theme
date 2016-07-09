@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'iconset';
+    src:url('fonts/iconset.eot?9ww9dq');
+    src:url('fonts/iconset.eot?#iefix9ww9dq') format('embedded-opentype'),
+        url('fonts/iconset.woff?9ww9dq') format('woff'),
+        url('fonts/iconset.ttf?9ww9dq') format('truetype'),
+        url('fonts/iconset.svg?9ww9dq#iconset') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    line-height: 1;
+    
+    &:before {
+        font-family: 'iconset';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.icon-logo:before {
+	content: "\e600";
+}
+.icon-google:before {
+	content: "\e601";
+}
+.icon-facebook:before {
+	content: "\e602";
+}
+.icon-linkedin:before {
+	content: "\e603";
+}
+.icon-twitter:before {
+	content: "\e604";
+}
+.icon-googleplus:before {
+	content: "\e605";
+}
+.icon-youtube:before {
+	content: "\e606";
+}
+.icon-phone:before {
+	content: "\e607";
+}
+.icon-mail:before {
+	content: "\e608";
+}
+.icon-email:before {
+	content: "\e608";
+}
+.icon-envelope:before {
+	content: "\e608";
+}
+.icon-info:before {
+	content: "\e609";
+}
+.icon-alert:before {
+	content: "\e60a";
+}
+.icon-close:before {
+	content: "\e60b";
+}
+.icon-delete:before {
+	content: "\e60b";
+}
+.icon-prev:before {
+	content: "\e60c";
+}
+.icon-next:before {
+	content: "\e60d";
+}
+.icon-check:before {
+	content: "\e60e";
+}
+.icon-play:before {
+	content: "\e60f";
+}

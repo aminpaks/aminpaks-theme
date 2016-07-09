@@ -1,39 +1,11 @@
 <?php get_header(); ?>
 
-            <div class="header">
-                <div class="header-holder">
-                    <div class="header-wrapper">
-                        
-                        <?php echo do_shortcode('[headline title="Blog"]'); ?>
-
-                        <div class="container">
-                            <div class="search-box">
-                                <div class="search-box-holder">
-                                    <div class="search-box-wrapper">
-
-                                        <form method="get" action="/" autocomplete="off">
-                                            <input class="search-box-input" type="text" name="s" placeholder="Search">
-                                            <input name="post_type" value="post" type="hidden">
-                                            <button class="search-box-submit icon icon-facebook" type="submit">
-                                                <em></em>
-                                            </button>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div><!-- .header-wrapper -->
-                </div><!-- .header-holder -->
-            </div><!-- .header -->
-
-            <?php get_template_part('templates/control-navigation'); ?>
-
             <div class="content">
                 <div class="container">
                     <div class="content-holder">
                         <div class="content-wrapper">
+
+                            <?php get_template_part('templates/breadcrumbs'); ?>
 
                             <div class="content-entry-list">
 
@@ -70,11 +42,14 @@
 
                             </div>
                             
-                            <?php // get_template_part( 'templates/pagination' ); ?>
+                            <?php get_template_part( 'templates/pagination' ); ?>
 
                         </div><!-- .content-wrapper -->
+
+                        <?php //get_template_part('templates/sidebar'); ?>
+
                     </div><!-- .content-holder -->
                 </div><!-- .container -->
             </div><!-- .content -->
-
+            
 <?php get_footer();

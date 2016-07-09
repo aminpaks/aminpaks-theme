@@ -4,7 +4,7 @@
                 <div class="header-holder">
                     <div class="header-wrapper">
                         
-                        <?php echo do_shortcode('[headline title="Blog"]'); ?>
+                        <?php echo do_shortcode('[headline title="Search results"]'); ?>
 
                         <div class="container">
                             <div class="search-box">
@@ -12,7 +12,7 @@
                                     <div class="search-box-wrapper">
 
                                         <form method="get" action="/" autocomplete="off">
-                                            <input class="search-box-input" type="text" name="s" placeholder="Search">
+                                            <input class="search-box-input" type="text" name="s" placeholder="Search" value="<?php echo get_query_var('s'); ?>">
                                             <input name="post_type" value="post" type="hidden">
                                             <button class="search-box-submit icon icon-facebook" type="submit">
                                                 <em></em>
@@ -34,6 +34,8 @@
                 <div class="container">
                     <div class="content-holder">
                         <div class="content-wrapper">
+
+                            <?php echo do_shortcode('[headline title="Results for" subtitle="' . get_query_var('s') . '"]'); ?>
 
                             <div class="content-entry-list">
 

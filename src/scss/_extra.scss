@@ -1,0 +1,220 @@
+html{
+    height:100%;
+}
+
+@mixin glisse-buttons {
+    color: #fff;
+    background-color: #000;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 4px;
+
+    &:hover {
+        background-color: rgba(0,0,0,.7);
+    }
+}
+
+#glisse-wrapper {
+}
+
+/* Glisse: Overlay */
+#glisse-overlay {
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    position:fixed;
+    background-color:rgba(0,0,0,.5);
+
+    z-index: 9990;
+    
+    @include transition(500ms);
+
+    &.loading #glisse-spinner {
+        opacity: 1;
+    } /* Display spinner */
+
+    &.closing,
+    &.hidden {
+        opacity: 0;
+    }
+    
+    /* Glisse: Overlay content */
+    &-content {
+        position: fixed;
+        top: 10%;
+        right: 10%;
+        bottom: 10%;
+        left: 10%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        background-size:            contain;
+        backface-visibility:        hidden;
+
+        z-index: 1099999;
+        
+        transform: scale(0);
+
+        @include transition(400ms, ease-in-out);
+        
+        /* Hide images */
+        img{
+            display:none;
+        }
+
+        /* Shake effect */
+        &.shake {
+            animation: shake 600ms 1;
+        }
+
+        &.trans-in {
+            transform: scale(1);
+        }
+        &.trans-out {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+
+    /* Glisse: Spinner */
+    #glisse-spinner {
+        top: 50%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        margin: -40px 0 0 -40px;
+        position: fixed;
+        background: rgba(0,0,0,.6) url(image/loader.gif) center center no-repeat;
+        border-radius: 6px;
+        
+        opacity: 0;
+
+        &.hidden,
+        &.closing {
+            opacity: 0;
+        }
+        
+        &.loading {
+            opacity: 1;
+        }
+    }
+}
+
+
+/* Glisse: Controls bar */
+#glisse-controls {
+    z-index: 9999;
+
+    @include transition(150ms, ease-in-out);
+
+    &.closing,
+    &.hidden {
+        opacity: 0;
+    }
+    
+    > span {
+        /* Prev/Next button */
+        a {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            
+            bottom: 20px;
+
+            display: block;
+            position: fixed;
+
+            z-index: 9999;
+
+            user-select: none;
+
+            @include glisse-buttons;
+            @include icon;
+            @include transition(150ms, ease-in-out);
+
+            &:before {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                display: block;
+            }
+        }
+
+        &.glisse-next a {
+            left: 50%;
+            margin-left: 20px;
+
+            &:before {
+                content: '\e615';
+            }
+        }
+        &.glisse-prev a {
+            left: 50%;
+            margin-left: -40px;
+
+            &:before {
+                content: '\e614';
+            }
+        }
+        &.disbaled {
+            a {
+                opacity: .1;
+                cursor:default;
+
+                background-color: #000;
+            }
+        } /* disabled effect */
+
+    }
+
+    /* Legend */
+    .glisse-legend {
+        left: 10px;
+        bottom: 10px;
+        color: white;
+        display: none;
+        background: blue;
+        position:fixed;
+        z-index: 9999;
+    }
+}
+
+#glisse-close {
+    top:40px;
+    right:40px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    position: fixed;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    @include glisse-buttons;
+    @include transition(150ms, ease-in-out);
+
+    &:before {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        content: 'x';
+        display: block;
+        font: {
+            family: Arial, san-serif;
+        };
+    }
+
+    &.hidden,
+    &.closing {
+        opacity: 0;
+    }
+}
+
+/* Glisse: Keyframes */
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {transform: translateX(10px);}
+}

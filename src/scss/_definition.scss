@@ -1,0 +1,121 @@
+
+
+
+
+$font-def: 'Raleway', sans-serif !default;
+$font-title: 'Raleway', sans-serif !default;
+$font-subtitle: 'Raleway', sans-serif !default;
+$font-content: 'Raleway', sans-serif !default;
+$font-footer: 'Raleway', sans-serif !default;
+
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-bold: 600 !default;
+
+$col-main-1: #1bacff !default;
+$col-main-1-x: #0099ef !default;
+$col-main-2: #ffcc00 !default;
+$col-main-3: #11e78f !default;
+
+$col-def: #282828 !default;
+$col-alt: #484848 !default;
+$col-dif: #b8b8b8 !default;
+
+$col-back: #fff !default;
+$col-back-gray-1: #f9f9f9 !default;
+$col-back-gray-2: #f1f1f1 !default;
+$col-text: #282828 !default;
+$col-main: #0099ef !default;
+$col-title: #282828 !default;
+$col-border: #e5e5e5 !default;
+$col-border-alt: #e5e5e5 !default;
+
+$col-twitter: #55acee !default;
+$col-facebook: #3b5998 !default;
+$col-flickr: #0063dc !default;
+$col-foursquare: #8FD400 !default;
+$col-google-plus: #C63D2D !default;
+$col-instagram: #4E433C !default;
+$col-linkedin: #0976b4 !default;
+$col-tumblr: #2B4964 !default;
+$col-vimeo: #0976b4 !default;
+
+$col-link: $col-text !default;
+$col-link-hover: $col-main-1 !default;
+
+$transition-link: all 120ms !default;
+$transition-duration: 120ms !default;
+$transition-nav-link: all 120ms ease-in-out !default;
+
+$container-min-size: 1024px !default;
+$container-max-size: 1200px !default;
+
+$minimal-view-min-size: 736px !default;
+$standard-view-min-size: 1000px !default;
+
+
+@mixin default-font {
+    font: {
+        size: 18px;
+        family: $font-def;
+        weight: $weight-normal;
+    }
+}
+
+@mixin content-text {
+    font: {
+        size: 18px;
+        family: $font-content;
+        weight: $weight-normal;
+    }
+    line-height: 1.8;
+}
+
+@mixin clear {
+    &:after {
+        clear: both;
+        content: '';
+        display: table;
+        visibility: hidden;
+    }
+}
+
+@mixin transition($duration: 120ms, $ease: linear, $property: all, $delay: 0s) {
+    transition: $property $duration $ease $delay;
+}
+
+@mixin header-no-margin {
+    @for $i from 1 through 6 {
+        h#{$i} {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@mixin fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin icon {
+
+    &:before {
+        font-family: 'iconset';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        
+    }
+}
